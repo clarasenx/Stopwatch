@@ -1,0 +1,1 @@
+Projeto criado como forma de praticar o conteúdo do curso de Javascript Impressionador da Hashtag Treinamentos, especificamente o módulo de objetos e classes, sendo que o objetivo principal é criar um cronomêtro com suas principais funcionalidades.
