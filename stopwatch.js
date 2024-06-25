@@ -1,22 +1,23 @@
 class Stopwatch {
   #elapsedTimeSeconds = 0;
-  intervalID = null;
+  #intervalID = null;
+
   start(callback = () => {}) {
-    this.intervalID = setInterval(() => {
-      this.elapsedTimeSeconds++;
+    this.#intervalID = setInterval(() => {
+      this.#elapsedTimeSeconds++;
       callback();
     }, 1000);
   }
   stop(callback = () => {}) {
-    clearInterval(this.intervalID);
+    clearInterval(this.#intervalID);
     callback();
   }
   reset(callback = () => {}) {
-    this.elapsedTimeSeconds = 0;
+    this.#elapsedTimeSeconds = 0;
     callback();
   }
   get elapsedTime() {
-    return Stopwatch.formatTime(this.elapsedTimeSeconds);
+    return Stopwatch.formatTime(this.#elapsedTimeSeconds);
   }
 
   static formatTime(timeInSeconds) {
@@ -40,4 +41,23 @@ class Stopwatch {
   }
 }
 
+const startButton = document.getElementById("start");
+const stopButton = document.getElementById("stop");
+const resetButton = document.getElementById("reset");
+const stopwatchDisplay = document.getElementById("stopwatchDisplay");
+
+function updateDisplay() {
+  stopwatchDisplay.innerText = sw1.elapsedTime;
+}
+
 const sw1 = new Stopwatch();
+
+startButton.addEventListener("click", () => {
+  sw1.start(updateDisplay);
+});
+stopButton.addEventListener("click", () => {
+  sw1.stop();
+});
+resetButton.addEventListener("click", () => {
+  sw1.reset(updateDisplay);
+});
