@@ -1,17 +1,19 @@
 class Stopwatch {
-  elapsedTimeSeconds = 0;
+  #elapsedTimeSeconds = 0;
   intervalID = null;
-  start() {
+  start(callback = () => {}) {
     this.intervalID = setInterval(() => {
       this.elapsedTimeSeconds++;
-      console.log(this.elapsedTime);
+      callback();
     }, 1000);
   }
-  stop() {
+  stop(callback = () => {}) {
     clearInterval(this.intervalID);
+    callback();
   }
-  reset() {
+  reset(callback = () => {}) {
     this.elapsedTimeSeconds = 0;
+    callback();
   }
   get elapsedTime() {
     return Stopwatch.formatTime(this.elapsedTimeSeconds);
