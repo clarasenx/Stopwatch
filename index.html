@@ -3,11 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My StopWatch</title>
+    <title>My Stopwatch</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>My Stopwatch</h1>
+    <section id="stopwatchWrapper">
+      <h1>-------- My StopWatch --------</h1>
+      <p id="stopwatchDisplay">00:00:00</p>
+      <div id="buttonBox">
+        <button id="start">Iniciar</button>
+        <button id="stop" class="secondaryButton">Parar</button>
+        <button id="reset">Reiniciar</button>
+      </div>
+    </section>
     <script src="Stopwatch.js"></script>
   </body>
 </html>
